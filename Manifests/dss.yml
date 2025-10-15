@@ -3,20 +3,28 @@ apiVersion: v1
 kind: Secret
 metadata:
   name: yelp-camp-secrets
+  namespace: web-apps
 type: Opaque
 data:
-  CLOUDINARY_CLOUD_NAME: ZGlpMnJvenRw
-  CLOUDINARY_KEY: NzU3NjQzMjU3ODkxMzY0
-  CLOUDINARY_SECRET: SHpBeTdPU3VCZjJhSUFSUm5Fd0tIcEVtc01N
-  MAPBOX_TOKEN: cGsuZXlKMUlqb2lZV1JwYW1GcGMzZGhiQ0lzSW1FaU9pSmpiSFl3TnpKemVHNHhaRzR5TW1wd1ltWm1OSFZ3YlhObUluMC5SVlFZc3UwUnZKZ0NGNTRrMjJkWDBB
-  DB_URL: bW9uZ29kYitzcnY6Ly9qYWlzd2FsYWRpMjQ2OnNjN1ZHU3lkN2RRQ2NMeTFAY2x1c3RlcjAuaXE2bXV0aC5tb25nb2RiLm5ldC8/cmV0cnlXcml0ZXM9dHJ1ZSZ3PW1ham9yaXR5JmFwcE5hbWU9Q2x1c3RlcjA=
-  SECRET: ZGV2b3Bzc2hhY2s=
+  CLOUDINARY_CLOUD_NAME: ZGFpd3drOXI0
+  CLOUDINARY_KEY: NTE2NzI4MzQxMTg1Mzkx
+  CLOUDINARY_SECRET: V0N0WUVl
+WVpMRWh4bF9TSjJxZGhOR21vYms=
+  MAPBOX_TOKEN: cGsuZXlKMWlKb2liWHZoYldsdVpYUnZjaUk2SW1saVlYTWlMQ0oxYzJWeUlqb2lZbVZqYjNWdVpHVnpZV2RsSWl3aWJtRnRaU0k2SW1GelpHUnpMV2x6WlhJdVpHbG1ZV3h2TG1OdmJTOXpaWEoyYVdObFgybGtJam9pTURneU1EQXdOall6TlRnaWZRLkpQYzRuQU9UdVBsNmhvM2hzZDNORkE=
+  DB_URL: Im1vbmdvZGImc3J2Oi8vbXV
+oYW1tYWRtaWxoYW5kZXZvcHNfZGJfdXNlcjpR
+RU5VV0lKQ2VFM1lqb3VVQG11aGFtbWFkbWls
+aGFuZGV2b3BzLnh4Y25lb28ubW9uZ29kYi5u
+ZXQvP3JldHJ5V3JpdGVzPXRydWUmYXBwTmFt
+ZT1tdWhhbW1hZG1pbGhhbmRldm9wcyI=
+  SECRET: bXVoYW1tYWRtaWxoYW5kZXZvcHM=
 
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: yelp-camp-deployment
+  namespace: web-apps
 spec:
   replicas: 1
   selector:
@@ -29,7 +37,7 @@ spec:
     spec:
       containers:
         - name: yelp-camp-container
-          image: adijaiswal/campa:latest
+          image: muhammadmilhandevops/camp:latest
           ports:
             - containerPort: 3000
           env:
@@ -67,18 +75,19 @@ spec:
             httpGet:
               path: /
               port: 3000
-            initialDelaySeconds: 30   # Adjust the initial delay here
+            initialDelaySeconds: 30
           readinessProbe:
             httpGet:
               path: /
               port: 3000
-            initialDelaySeconds: 30   # Adjust the initial delay here
+            initialDelaySeconds: 30
 
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: yelp-camp-service
+  namespace: web-apps
 spec:
   selector:
     app: yelp-camp
