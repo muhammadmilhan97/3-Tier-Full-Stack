@@ -6,13 +6,12 @@ metadata:
   namespace: web-apps
 type: Opaque
 data:
-  CLOUDINARY_CLOUD_NAME: ZGFpd3drOXI0            # <paste your base64 here if different>
-  CLOUDINARY_KEY: NTE2NzI4MzQxMTg1Mzkx          # <paste your base64 here if different>
-  CLOUDINARY_SECRET: V0N0WUtlZXNXTEVocGxfU0oycWRoTkdtb2Jr
-  MAPBOX_TOKEN: cGsuZXlKMUlqb2libXVoYW1tYWRtaWxoYW5kZXZvcHMiLCJhIjoiY21nb29jZ3V4MXdlMzJqc2d5c3J3bTB0ZiJ9LkpQYzRuQU9UdVBsNmhvM2hzZDNORkE=
-  DB_URL: bW9uZ29kYitzcnY6Ly9tdWhhbW1hZG1pbGhhbmRldm9wc19kYl91c2VyOlFFTlVXSkNlRTNZam91VUBtdWhhbW1hZG1pbGhhbmRldm9wcy54eGNuZW9vLm1vbmdvZGIubmV0Lz9yZXRyeVdyaXRlcz10cnVlJnc9bWFqb3JpdHkmYXBwTmFtZT1tdWhhbW1hZG1pbGhhbmRldm9wcw==
-  SECRET: bXVoYW1tYWRtaWxoYW5kZXZvcHM
-
+  CLOUDINARY_CLOUD_NAME: ZGFpd3drOXI0
+  CLOUDINARY_KEY: NTE2NzI4MzQxMTg1Mzkx
+  CLOUDINARY_SECRET: V0N0WUtlZXNXTEVoeGxfU0oycWRoTkdtb2Jr
+  MAPBOX_TOKEN: cGsuZXlKMUlqb2liWFZvWVcxdFlXUnRhV3hvWVc1a1pYWnZjSE1pTENKaElqb2lZMjFuYjI5alozVjRNWGRsTXpKcWMyZDVjM0ozYlRCMFppSjkuSlBjNG5BT1R1UGw2aG8zaHNkM05GQQ==
+  DB_URL: Im1vbmdvZGIrc3J2Oi8vbXVoYW1tYWRtaWxoYW5kZXZvcHNfZGJfdXNlcjpRRU5VV0lKQ2VFM1lqb3VVQG11aGFtbWFkbWlsaGFuZGV2b3BzLnh4Y25lb28ubW9uZ29kYi5uZXQvP3JldHJ5V3JpdGVzPXRydWUmdz1tYWpvcml0eSZhcHBOYW1lPW11aGFtbWFkbWlsaGFuZGV2b3BzIg==
+  SECRET: bXVoYW1tYWRtaWxoYW5kZXZvcHM=
 ---
 apiVersion: apps/v1
 kind: Deployment
