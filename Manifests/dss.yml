@@ -12,6 +12,7 @@ data:
   MAPBOX_TOKEN: cGsuZXlKMUlqb2liWFZvWVcxdFlXUnRhV3hvWVc1a1pYWnZjSE1pTENKaElqb2lZMjFuYjI5alozVjRNWGRsTXpKcWMyZDVjM0ozYlRCMFppSjkuSlBjNG5BT1R1UGw2aG8zaHNkM05GQQ==
   DB_URL: Im1vbmdvZGIrc3J2Oi8vbXVoYW1tYWRtaWxoYW5kZXZvcHNfZGJfdXNlcjpRRU5VV0lKQ2VFM1lqb3VVQG11aGFtbWFkbWlsaGFuZGV2b3BzLnh4Y25lb28ubW9uZ29kYi5uZXQvP3JldHJ5V3JpdGVzPXRydWUmdz1tYWpvcml0eSZhcHBOYW1lPW11aGFtbWFkbWlsaGFuZGV2b3BzIg==
   SECRET: bXVoYW1tYWRtaWxoYW5kZXZvcHM=
+
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -31,6 +32,7 @@ spec:
       containers:
         - name: yelp-camp-container
           image: muhammadmilhandevops/camp:latest
+          imagePullPolicy: Always
           ports:
             - containerPort: 3000
           env:
@@ -68,12 +70,12 @@ spec:
             httpGet:
               path: /
               port: 3000
-            initialDelaySeconds: 30
+            initialDelaySeconds: 45
           readinessProbe:
             httpGet:
               path: /
               port: 3000
-            initialDelaySeconds: 30
+            initialDelaySeconds: 45
 
 ---
 apiVersion: v1
