@@ -84,10 +84,11 @@ metadata:
   name: yelp-camp-service
   namespace: web-apps
 spec:
+  type: LoadBalancer
   selector:
     app: yelp-camp
   ports:
-    - protocol: TCP
-      port: 3000
-      targetPort: 3000
-  type: LoadBalancer
+    - name: http
+      port: 80          # ELB listener
+      targetPort: 3000  # container port
+
