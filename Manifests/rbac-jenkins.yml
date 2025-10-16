@@ -1,17 +1,14 @@
-# (Idempotent) Ensure target namespace exists
 apiVersion: v1
 kind: Namespace
 metadata:
   name: web-apps
 ---
-# ServiceAccount used by Jenkins (must match your credential binding)
 apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: jenkins
   namespace: web-apps
 ---
-# Least-privilege Role for namespace-scoped deployments
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
@@ -27,18 +24,17 @@ rules:
       - secrets
       - configmaps
       - persistentvolumeclaims
-    verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
+    verbs: ["get","list","watch","create","update","patch","delete"]
   - apiGroups: ["apps"]
     resources:
       - deployments
       - replicasets
-    verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
+    verbs: ["get","list","watch","create","update","patch","delete"]
   - apiGroups: ["networking.k8s.io"]
     resources:
       - ingresses
-    verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
+    verbs: ["get","list","watch","create","update","patch","delete"]
 ---
-# Bind the Role to the Jenkins ServiceAccount in this namespace
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
